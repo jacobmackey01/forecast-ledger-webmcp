@@ -5,6 +5,7 @@ __pycache__/
 build/
 dist/
 .pytest_cache/
+.pytest-*/
 .ipynb_checkpoints/
 
 # Cached raw API payloads. Never commit these: the sealed predictions carry
