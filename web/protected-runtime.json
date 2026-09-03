@@ -6,7 +6,7 @@
     "src/data.json"
   ],
   "files": {
-    ".openai/hosting.json": "89610cb100afd3db32d865423a69a3fe2de1da54150570ea979a63143a6d5bdd",
+    ".openai/hosting.json": "d2092aad2796fe463c094a09e01f01fa40908b15d2a55265ae7c4b7e1eef439f",
     "AGENTS.md": "4be23c8e2613780cabf2a6cfb33e1632f95aba29aa3426d143ae88c128f9bfea",
     "docs/components/README.md": "cd02aae19980bb290b65a8cb77a7037af2a90ba06d13a7a715871d5f44de650e",
     "docs/components/async-data.md": "897d95e4167d728a538542b59c88d1f689196c764851f1d07cfff2a9a7b7e5d8",
