@@ -13,7 +13,10 @@ import "./theme-runtime.js";
 import { App } from "./App.jsx";
 import reviewedSnapshot from "./data.json";
 
-const hosted = globalThis.location?.hostname.endsWith(".chatgpt.site") ?? false;
+// This challenge build is a static, read-only research record. Its reviewed
+// snapshot is bundled into the page, so it must not request server-only API
+// routes merely because Sites serves it from a chatgpt.site hostname.
+const hosted = false;
 
 export function DataAppRuntime() {
   return <App hosted={hosted} />;

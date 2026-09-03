@@ -52,3 +52,13 @@ test("invalid tool input fails before changing view", async () => {
   await assert.rejects(showDay.execute({ date: "not-a-date" }), /YYYY-MM-DD/u);
   assert.deepEqual(updates, []);
 });
+
+test("static Sites build uses the bundled reviewed snapshot", async () => {
+  const hosting = JSON.parse(
+    await readFile(new URL("../.openai/hosting.json", import.meta.url), "utf8"),
+  );
+  const entrySource = await readFile(new URL("../src/main.jsx", import.meta.url), "utf8");
+
+  assert.equal(hosting.static.directory, "dist");
+  assert.match(entrySource, /const hosted = false;/u);
+});
