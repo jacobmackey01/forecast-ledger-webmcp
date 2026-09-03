@@ -86,3 +86,21 @@ def test_regeneration_preserves_the_data_app_identity(tmp_path: Path):
 
     regenerated = json.loads(output.read_text(encoding="utf-8"))
     assert regenerated["id"] == "dashboard:stable-test-id"
+
+
+def test_challenge_mirror_has_no_automatic_forecast_writers():
+    root = Path(__file__).resolve().parents[1]
+    assert (root / "CHALLENGE_MIRROR.md").exists()
+
+    workflows = root / ".github" / "workflows"
+    predict = (workflows / "predict.yml").read_text(encoding="utf-8")
+    score = (workflows / "score.yml").read_text(encoding="utf-8")
+    audit = (workflows / "integrity-audit.yml").read_text(encoding="utf-8")
+
+    assert "schedule:" not in predict
+    assert "schedule:" not in score
+    assert "schedule:" not in audit
+    assert "workflow_run:" not in audit
+    assert "workflow_dispatch:" in predict
+    assert "workflow_dispatch:" in score
+    assert "workflow_dispatch:" in audit

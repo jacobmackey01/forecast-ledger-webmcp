@@ -20,6 +20,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 LEDGER_PATH = REPO_ROOT / "results" / "ledger.jsonl"
 SVG_PATH = REPO_ROOT / "results" / "prospective_track_record.svg"
 PREDICT_WORKFLOW_PATH = REPO_ROOT / ".github" / "workflows" / "predict.yml"
+CHALLENGE_MIRROR_PATH = REPO_ROOT / "CHALLENGE_MIRROR.md"
 
 
 def _scored(
@@ -327,6 +328,11 @@ def test_predict_is_scheduled_with_real_slack_before_the_gate():
     the most contended minute of the hour was not enough.
     """
     workflow = PREDICT_WORKFLOW_PATH.read_text(encoding="utf-8")
+
+    if CHALLENGE_MIRROR_PATH.exists():
+        assert "schedule:" not in workflow
+        assert "workflow_dispatch:" in workflow
+        return
 
     match = re.search(r'cron: "(\d+) (\d+) \* \* \*"', workflow)
     assert match, "predict cron not found or no longer a simple daily schedule"

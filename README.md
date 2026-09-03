@@ -1,4 +1,28 @@
-# Live day-ahead forecasting track record — DE-LU power
+# Forecast Ledger — agent-native market research audit
+
+**[Open the live workspace](https://forecast-ledger-webmcp.jacobmackey01.chatgpt.site/)** ·
+**[Read the WebMCP implementation notes](WEBMCP_CHALLENGE.md)** ·
+**[View the continuing research record](https://github.com/jacobmackey01/de-power-live-forecast)**
+
+Forecast Ledger is a WebMCP-enabled workspace for auditing a prospective
+DE-LU day-ahead electricity forecasting record. A person can inspect the
+running charts, delivery-day ledger, preregistered calls and data provenance.
+An agent can query the same reviewed evidence through six structured tools and
+move the visible workspace to the result it is discussing.
+
+The workspace can audit the complete record, compare either persistence
+baseline, rank weak forecast days, inspect misses, open one delivery day, and
+check the evaluation or information-cutoff protocol. These operations change
+the visible analytical view, not the underlying predictions, scores, model
+artefacts or frozen preregistration.
+
+This repository preserves the full history of the underlying forecasting
+project so the challenge-period extension is auditable. It is a read-only
+challenge mirror: automatic prediction, scoring and audit schedules are
+disabled here. The continuing live research and its automation remain in
+[`de-power-live-forecast`](https://github.com/jacobmackey01/de-power-live-forecast).
+
+## Underlying prospective forecast record
 
 A forecast published **before** the day-ahead auction closes, scored **after** it
 settles, with the commit history as the evidence that the two happened in that
@@ -46,28 +70,6 @@ the project guarantees is the record, not the result.
 [![Prospective DE-LU forecast record showing cumulative price MAE against two baselines, negative-price Brier score and prediction-interval coverage](results/prospective_track_record.svg)](results/README.md)
 
 *Forecasts are sealed before auction close and outcomes are scored after settlement. Metrics use only committed scored rows through the latest scored delivery date; the sample is still accumulating, so no final claim is made before the preregistered gates are reached.*
-
----
-
-## Agent-native audit workspace
-
-The [Forecast Ledger](https://forecast-ledger-webmcp.jacobmackey01.chatgpt.site/)
-is a WebMCP-enabled workspace built over this public record. A person can inspect
-the running charts, delivery-day ledger, preregistered calls and provenance in
-the browser. An agent can query the same reviewed evidence through six
-structured tools and move the visible workspace to the result it is discussing.
-
-The workspace can audit the complete record, compare either persistence
-baseline, rank weak forecast days, inspect misses, open one delivery day, and
-check the evaluation or information-cutoff protocol. These are read-only
-research operations: they do not change predictions, scores, model artefacts or
-the frozen preregistration.
-
-This is a new extension for the 2026 OpenAI WebMCP Challenge. The forecasting
-system predates the challenge; the browser application, WebMCP tools, reviewed
-snapshot exporter and associated tests were added on 3 September 2026. See
-[`WEBMCP_CHALLENGE.md`](WEBMCP_CHALLENGE.md) for the implementation boundary,
-tool contract and reproduction steps.
 
 ---
 

@@ -5,21 +5,18 @@ name: integrity-audit
 # integrity.yml guards pushes, but Actions does not raise workflow events for
 # pushes made with GITHUB_TOKEN, so every commit written by score, predict or
 # record-miss lands on main without that guard ever running. This workflow
-# closes that hole: it re-checks the invariants once the writing workflow has
-# finished, and again on a daily schedule in case a run never reported.
+# closes that hole in the authoritative repository: it re-checks the invariants
+# once a writing workflow finishes and again on a daily schedule. This challenge
+# mirror preserves the audit body as a manual-only workflow.
 #
 # It is deliberately powerless. contents: read, no persisted credentials, no
 # PAT, and not a single command here writes to the repository. An auditor that
 # repairs what it finds destroys the evidence it exists to preserve, so a
 # discrepancy fails the run and stays on disk for a human to look at.
 
+# This challenge mirror is intentionally read-only. The automatic audit remains
+# active only in jacobmackey01/de-power-live-forecast alongside the live jobs.
 on:
-  workflow_run:
-    workflows: [predict, score, record-miss]
-    types: [completed]
-  schedule:
-    # Off the hour, and after the day's score run has settled.
-    - cron: "23 22 * * *"
   workflow_dispatch:
 
 permissions:

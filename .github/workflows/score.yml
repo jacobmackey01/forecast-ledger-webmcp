@@ -3,12 +3,13 @@ name: score
 # Scores delivery days whose outturn has settled, and appends to results/.
 # Never writes to predictions/ - the integrity workflow would reject it if it did.
 #
-# Runs late enough that the previous delivery day is fully settled, allowing for
-# the 30-hour settle margin in score.py.
+# The authoritative repository runs late enough that the previous delivery day
+# is fully settled, allowing for the 30-hour margin in score.py. This challenge
+# mirror preserves the workflow body without scheduling it.
 
+# This challenge mirror is intentionally read-only. The scheduled live record
+# continues only in jacobmackey01/de-power-live-forecast.
 on:
-  schedule:
-    - cron: "0 14 * * *"
   workflow_dispatch:
 
 permissions:

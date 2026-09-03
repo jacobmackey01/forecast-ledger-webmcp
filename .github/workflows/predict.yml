@@ -8,8 +8,9 @@ name: predict
 # Scheduled Actions are queued, not guaranteed, and on-the-hour crons sit in the
 # most contended slot on the platform. At "0 6" every run from 2026-08-27 onward
 # started between 4h30 and 12h late and so arrived after the gate, which is why
-# the record has a run of missed days. This runs at 03:12 UTC instead: off the
-# hour, and roughly 6h45 of slack against the tighter summer deadline.
+# the record has a run of missed days. The authoritative repository now runs at
+# 03:12 UTC: off the hour, and roughly 6h45 before the tighter summer deadline.
+# This challenge mirror preserves the workflow body without scheduling it.
 #
 # Sealing earlier costs no forecast quality. PREREGISTRATION.md section 2 bans
 # the SMARD D+1 forecast series outright, so waiting until mid-morning buys no
@@ -20,9 +21,9 @@ name: predict
 # predict.py independently refuses to seal after gate closure, so a badly
 # delayed run still fails loudly instead of writing a worthless late forecast.
 
+# This challenge mirror is intentionally read-only. The scheduled live record
+# continues only in jacobmackey01/de-power-live-forecast.
 on:
-  schedule:
-    - cron: "12 3 * * *"
   workflow_dispatch:
 
 permissions:
