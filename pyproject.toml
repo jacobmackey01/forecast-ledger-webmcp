@@ -29,6 +29,7 @@ dev = [
 [project.scripts]
 de-power-predict = "de_power_live.predict:main"
 de-power-score = "de_power_live.score:main"
+de-power-webmcp-export = "de_power_live.webmcp_export:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

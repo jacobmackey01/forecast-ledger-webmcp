@@ -49,6 +49,28 @@ the project guarantees is the record, not the result.
 
 ---
 
+## Agent-native audit workspace
+
+The [Forecast Ledger](https://forecast-ledger-webmcp.jacobmackey01.chatgpt.site/)
+is a WebMCP-enabled workspace built over this public record. A person can inspect
+the running charts, delivery-day ledger, preregistered calls and provenance in
+the browser. An agent can query the same reviewed evidence through six
+structured tools and move the visible workspace to the result it is discussing.
+
+The workspace can audit the complete record, compare either persistence
+baseline, rank weak forecast days, inspect misses, open one delivery day, and
+check the evaluation or information-cutoff protocol. These are read-only
+research operations: they do not change predictions, scores, model artefacts or
+the frozen preregistration.
+
+This is a new extension for the 2026 OpenAI WebMCP Challenge. The forecasting
+system predates the challenge; the browser application, WebMCP tools, reviewed
+snapshot exporter and associated tests were added on 3 September 2026. See
+[`WEBMCP_CHALLENGE.md`](WEBMCP_CHALLENGE.md) for the implementation boundary,
+tool contract and reproduction steps.
+
+---
+
 ## The look-ahead trap this design exists to avoid
 
 The obvious way to build this is to feed the model SMARD's published day-ahead
