@@ -1,6 +1,6 @@
 # Forecast Ledger — agent-native market research audit
 
-**[Open the live workspace](https://forecast-ledger-webmcp.jacobmackey01.chatgpt.site/)** ·
+**[Open the live workspace](https://forecast-ledger.jacobmackey.com/)** ·
 **[Read the WebMCP implementation notes](WEBMCP_CHALLENGE.md)** ·
 **[View the continuing research record](https://github.com/jacobmackey01/de-power-live-forecast)**
 
