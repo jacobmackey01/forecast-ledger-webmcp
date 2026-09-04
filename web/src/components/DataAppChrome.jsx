@@ -746,39 +746,6 @@ export function DataAppTopbar({
           <button type="button" className="dashboard-header-action-button" disabled={saving} onClick={onCancel}>Cancel</button>
           <button type="button" className="dashboard-publish-button" disabled={saving} onClick={onSave}>Save</button>
         </div>}
-        {mode !== "edit" && <div className="dashboard-topbar-actions">
-          <DataAppOverflowMenu
-            canEdit={canEdit}
-            getActionHref={getActionHref}
-            hiddenCount={hiddenCount}
-            mode={mode}
-            onAction={onAction}
-            onOpenThemes={onOpenThemes}
-            onRestoreHidden={onRestoreHidden}
-            triggerRef={moreButtonRef}
-            published={published}
-            surface={surface}
-          />
-          {canEdit && <span className="history-tooltip-trigger" data-delayed-tooltip>
-            <button type="button" className="dashboard-header-action-button dashboard-header-edit-button"
-              aria-describedby={editTooltipId} aria-label="Edit text and layout" disabled={saveStatus === "saving"} onClick={() => onModeChange?.("edit")}>
-              <Icon name="edit" size={18} />
-            </button>
-            <Tooltip id={editTooltipId} className="topbar-mode-tooltip">Edit text and layout</Tooltip>
-          </span>}
-          <HeaderActionButton
-            ref={askButtonRef}
-            label="Ask ChatGPT"
-            icon="chatBubble"
-            compactLabel="Ask"
-            className="dashboard-ask-button"
-            onClick={() => openAskComposer()}
-          />
-          {canEdit && (!published || pendingCodeChanges) && (
-            <DataAppPublishButton published={published} getActionHref={getActionHref} surface={surface} />
-          )}
-
-        </div>}
       </div>
       <div
         className={`dashboard-tabs-collapse${tabsExpanded ? " is-open" : ""}`}
